@@ -26,7 +26,7 @@ if(searchWord){
           </li>
             `
         }).join(' ');
- }
+  }
 else{
     list.innerHTML = `<li id="no_res">No search term provided.</li>`;
     }
