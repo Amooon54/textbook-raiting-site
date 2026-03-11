@@ -1,0 +1,59 @@
+  const Books =[{id:"book1" , title:"Computer Architecture A Quantitative Approach" ,
+            author:"John L. Hennessy ,David A. Patterson" , cover:"assets/71zrCDfb73S._SL1500_.jpg" },{id:"book2" , title:"Digital Design and Computer Architecture" ,
+            author:"Author:David Money Harris ,Sarah L. Harris" , cover:"assets/images.jpeg"},{id:"book3" , title:"Inside The Machine" ,
+            author:"Author:Jon Stokes" , cover:"assets/images (1).jpeg"}];
+  const formSearch =document.getElementById('searchBtn');
+  const foemSearch2 =document.getElementById('search-bar')
+  
+    const par = new URLSearchParams(window.location.search);
+    const searchWord = par.get('search');  
+      const list = document.getElementById('bookList');
+    if(searchWord){
+      const res = Books.filter(book => {
+        return book.title.toLowerCase().includes(searchWord.toLowerCase());
+        
+      });
+     
+      list.innerHTML = res.map(result => {
+        return`
+        <li>
+         <div id="book">
+          <img src="${result.cover}" height="183" width="120" alt="${result.title}"> 
+                            <div class="coverbookInfo">
+                                <a href="BookDetail.html?key=${result.id}">${result.title}</a>
+                                <h5>${result.author}</h5>
+                            </div>
+         </div>                   
+        </li>
+        `
+        
+      }).join(' ');
+    
+    }
+   else{
+    list.innerHTML = `<li id="no_res">No search term provided.</li>`;
+    }
+   
+       
+   
+/*
+             const param = new URLSearchParams(window.location.search);
+  const key = param.get("key");
+  const bk = Books.find(b => b.id === key);
+
+  
+  document.getElementById('CoverImg').src = bk.cover;
+  document.getElementById('bk-name').textContent = bk.title;
+  document.getElementById('auth-name').textContent = bk.author;
+
+   const searchValue = document.getElementById('search-bar');
+   const searchInput = document.getElementById('search-input');
+   for(bk in books){
+    console.log(bk);
+    if (searchInput === bk){
+
+    }
+
+   }  */
+
+     

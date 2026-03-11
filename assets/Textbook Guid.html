@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!-- saved from url=(0093)file:///Applications/XAMPP/xamppfiles/htdocs/projects/textbook%20raiting%20site/listBook.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textbook Guid</title>
+    <link rel="stylesheet" href="./Textbook Guid_files/style.css">
+</head>
+<body>
+    <header>
+        
+            <div class="logo">
+
+                <a href="file:///index.html" class="logo-link">
+                   <span class="logo-text" style="size:55px; "><b>Textbook Guid</b></span>
+                </a>
+            </div>     
+            <div class="signin">
+                <button class="signup_login">
+                    Signup/Login
+                </button>
+            </div>
+        
+       
+        
+    </header>
+     <main>
+        <div>
+            <div class="booklist">
+                <ul id="bookList"> 
+                   
+                </ul>
+            </div>
+        </div>    
+    </main>
+    <footer>© Textbook Guide</footer>
+    
+
+<script>
+    const Books =[{id:"book1" , title:"Computer Architecture A Quantitative Approach" ,
+            author:"John L. Hennessy ,David A. Patterson" , cover:"assets/71zrCDfb73S._SL1500_.jpg" },{id:"book2" , title:"Digital Design and Computer Architecture" ,
+            author:"Author:David Money Harris ,Sarah L. Harris" , cover:"assets/images.jpeg"},{id:"book3" , title:"Inside The Machine" ,
+            author:"Author:Jon Stokes" , cover:"assets/images (1).jpeg"}];
+        const formSearch =document.getElementById('search-bar');
+            
+      formSearch.addEventListener('submit' ,function (e){
+         
+          
+         const searchWord = new URLSearchParams(window.location.search);  
+          const list = document.getElementById('bookList');
+          const form= new FormData(formSearch);
+          const q = form.get('search')
+           list.innerHTML = '';    
+
+          Books.forEach(book => {     
+                 
+            if(book.title.includes(q)){
+                const innlist = document.createElement('li');
+                innlist.innerHTML =
+                        `
+                        <div id="book">
+                            <img src="${book.cover}"  height="183" width="120" alt="">
+                            <div>
+                                <a href="listBook.html?key=${book.id}">${book.title}</a>
+                                <h5 id="auth">${book.author}</h5>
+                            </div>
+                            
+                        </div>
+                      
+                    `;
+                     list.appendChild(innlist);
+                        
+                    }
+                    
+            }) ;
+              
+             if (list.innerHTML === '') {
+        list.innerHTML = '<li>No books found matching that title.</li>';
+    }   
+                
+                
+              
+           
+
+      });
+</script>
+</body></html>

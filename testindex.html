@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textbook Guid</title>
+    <link rel="stylesheet" href="./style.css">
+    
+</head>
+<body>
+    <header>
+        
+            <div class="logo">
+
+                <a href="/index.html" class="logo-link">
+                   <span class="logo-text" style="size:55px; "><b>Textbook Guid</b></span>
+                </a>
+            </div>     
+            <div class="signin">
+                <button class="signup_login">
+                    Signup/Login
+                </button>
+            </div>
+        
+       
+        
+    </header>
+    <main>
+        <div>
+            <div class="booklist">
+                <ul id="bookList"> 
+
+                </ul>
+            </div>
+        </div>    
+    </main>
+    <footer>&#169; Textbook Guide</footer>
+    
+</body>
+ <script>
+            const Books =[{id:"book1" , title:"Computer Architecture A Quantitative Approach" ,
+            author:"John L. Hennessy ,David A. Patterson" , cover:"assets/71zrCDfb73S._SL1500_.jpg" },{id:"book2" , title:"Digital Design and Computer Architecture" ,
+            author:"Author:David Money Harris ,Sarah L. Harris" , cover:"assets/images.jpeg"},{id:"book3" , title:"Inside The Machine" ,
+            author:"Author:Jon Stokes" , cover:"assets/images (1).jpeg"}];
+
+        const list = document.getElementById('bookList');
+       
+          
+
+        list.innerHTML = Books.map(book =>`
+             <li style="border: solid 1px; border-color: rgb(116, 116, 116);  border: 1px;">
+                        <div id="book">
+                            <img src="${book.cover}"  height="183" width="120" alt="${book.title}">
+                            <div id="coverbookInfo">
+                                <a href="bookDetail.html?key=${book.id}">${book.title}</a>
+                                <h5 id="${book.auth}">${book.author}</h5>
+                            </div>
+                            
+                        </div>
+                      
+                    </li>
+            `).join('');
+
+        
+        
+     </script>
+</html>
