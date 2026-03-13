@@ -28,7 +28,8 @@ if(searchWord){
         }).join(' ');
   }
 else{
-    list.innerHTML = `<li id="no_res">No search term provided.</li>`;
+    
+    list.innerHTML = `<div>No search term provided.</div>`;
     }
    
        

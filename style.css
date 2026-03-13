@@ -150,9 +150,8 @@ main{
 #coverImg{
      padding: 10px;
 }
-#no_res{
-    background: none;
-    border:none;
+#auth-name{
+    margin-bottom: 50px;
 }
 footer {
     bottom: 0px;
